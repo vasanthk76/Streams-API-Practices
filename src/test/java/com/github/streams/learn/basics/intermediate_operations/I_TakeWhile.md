@@ -19,6 +19,10 @@
 
 ```
         //Normal Filter
+        //Behavior: takeWhile() processes the stream from the beginning and includes elements as long as the predicate returns true. 
+        //As soon as an element is encountered for which the predicate returns false, takeWhile() stops processing and discards the rest of the stream, 
+        //including the element that failed the condition and all subsequent elements.
+        //Output: A stream containing a prefix of the original stream, where all elements in that prefix satisfy the predicate.
         List<Integer> filteredList = Stream.of(2, 4, 6, 8, 9, 10, 11, 12)
                 .filter(n -> n % 2 == 0)
                 .collect(Collectors.toList());

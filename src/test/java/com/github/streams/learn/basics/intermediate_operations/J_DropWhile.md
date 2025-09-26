@@ -18,6 +18,8 @@
 # Drop While:
 
 ```
+        //dropWhile() returns a stream consisting of the remaining elements of the stream after 
+        //dropping the longest prefix of elements that satisfy the given predicate. 
         List<Integer> dropWhile = Stream.of(2, 4, 6, 8, 9, 10, 11, 12)
                 .dropWhile(n -> n % 2 == 0)
                 .collect(Collectors.toList());

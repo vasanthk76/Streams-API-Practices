@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 class B_FunctionTest {
   /** Write a lambda expression that wraps the given string in parentheses. */
   @Test
-  @Disabled
+//  @Disabled
   void function1() {
-    Function<String, String> func = null; // TODO
+    Function<String, String> func = s->"("+s+")"; // TODO
 
     assertEquals("(abc)", func.apply("abc"));
     assertEquals("()", func.apply(""));
@@ -19,18 +19,18 @@ class B_FunctionTest {
 
   /** Write a lambda expression that converts the given string to upper case. */
   @Test
-  @Disabled
+//  @Disabled
   void function2() {
-    Function<String, String> func = null; // TODO
+    Function<String, String> func = s->s.toUpperCase(); // TODO
 
     assertEquals("ABC", func.apply("abc"));
   }
 
   /** Write an unbound method reference that converts the given string to upper case. */
   @Test
-  @Disabled
+//  @Disabled
   public void function3() {
-    Function<String, String> func = null; // TODO
+    Function<String, String> func = String::toUpperCase; // TODO
 
     assertEquals("ABC", func.apply("abc"));
   }
@@ -41,12 +41,12 @@ class B_FunctionTest {
    * length.
    */
   @Test
-  @Disabled
+//  @Disabled
   public void function4() {
     Function<String, String> unNullify = s -> s == null ? "" : s;
     Function<String, Integer> length = String::length;
 
-    Function<String, Integer> lengthBis = null; // TODO
+    Function<String, Integer> lengthBis = unNullify.andThen(length); //
 
     assertEquals((Integer) 14, lengthBis.apply("Hello JavaOne!"));
     assertEquals((Integer) 0, lengthBis.apply(""));
@@ -58,9 +58,9 @@ class B_FunctionTest {
    * into the string "abcdefghij", or that returns -1 if the string argument doesn't occur.
    */
   @Test
-  @Disabled
+//  @Disabled
   public void g_boundMethodRef1() {
-    Function<String, Integer> func = null; // TODO
+    Function<String, Integer> func = s->"abcdefghij".indexOf(s); // TODO
 
     assertEquals(2, func.apply("cde").intValue());
     assertEquals(4, func.apply("efg").intValue());
@@ -84,9 +84,9 @@ class B_FunctionTest {
    * side of the :: operator.
    */
   @Test
-  @Disabled
+//  @Disabled
   public void g_boundMethodRef2() {
-    final Function<String, Integer> func = null; // TODO
+    final Function<String, Integer> func = "abcdefghij"::indexOf; // TODO
 
     assertEquals(2, func.apply("cde").intValue());
     assertEquals(4, func.apply("efg").intValue());
