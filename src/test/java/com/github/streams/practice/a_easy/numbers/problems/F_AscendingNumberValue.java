@@ -2,6 +2,8 @@ package com.github.streams.practice.a_easy.numbers.problems;
 
 import com.github.streams.practice.a_easy.numbers.EasyNumbersProblemSolution;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -18,11 +20,11 @@ import org.junit.jupiter.api.Test;
 class F_AscendingNumberValue {
 
   @Test
-  @Disabled
+//  @Disabled
   public void test() {
     var input = List.of(1, 34, 3, 98, 9, 76, 45, 4);
     var mySolution = EasyNumbersProblemSolution.getSmallestPossibleValue(input);
-    var yourSolution = "";
+    var yourSolution = input.stream().map(String::valueOf).sorted().collect(Collectors.joining());
 
     Assertions.assertEquals(mySolution, yourSolution);
   }

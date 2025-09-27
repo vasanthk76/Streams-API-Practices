@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 /**
  * Calculates the sum of digits of a given integer.
  *
@@ -20,11 +23,11 @@ import org.junit.jupiter.api.Test;
 class C_SumOfDigits {
 
   @Test
-  @Disabled
+//  @Disabled
   void testSumOfDigits() {
     final var input = DummyData.fakerNumber();
     var mySolution = EasyNumbersProblemSolution.sumOfDigits(input);
-    var yourSolution = 2;
+    var yourSolution = IntStream.iterate(input, i->i>0, i->i/10).map(n->n%10).sum();
 
     Assertions.assertEquals(mySolution, yourSolution);
   }

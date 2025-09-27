@@ -2,6 +2,8 @@ package com.github.streams.practice.a_easy.numbers.problems;
 
 import com.github.streams.practice.a_easy.numbers.EasyNumbersProblemSolution;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -16,11 +18,19 @@ import org.junit.jupiter.api.Test;
  */
 class D_ValidNumbersOnly {
   @Test
-  @Disabled
+//  @Disabled
   void testCheckAllIntegersWithoutAlphabets() {
     final var input = List.of("1", "12", "12a", "a12");
-    var yourSolution = List.of();
     var mySolution = EasyNumbersProblemSolution.getNumberOnly(input);
+    var yourSolution = input.stream().filter(s->{
+      if(s==null||s.isEmpty()) return false;
+      try{
+        Integer.parseInt(s);
+        return true;
+      }catch(Exception e){
+        return false;
+      }
+    }).collect(Collectors.toList());
 
     Assertions.assertEquals(mySolution, yourSolution);
   }

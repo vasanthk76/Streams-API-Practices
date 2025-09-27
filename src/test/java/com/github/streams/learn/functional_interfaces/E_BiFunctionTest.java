@@ -12,9 +12,9 @@ class E_BiFunctionTest {
    * first with the second, followed by the first again.
    */
   @Test
-  @Disabled
+//  @Disabled
   public void e_bifunction1() {
-    BiFunction<String, String, String> bifunc = null; // TODO
+    BiFunction<String, String, String> bifunc = (a,b)-> a+b+a; // TODO
 
     assertEquals("FirstSecondFirst", bifunc.apply("First", "Second"));
   }
@@ -24,9 +24,9 @@ class E_BiFunctionTest {
    * within the first string, or -1 if the second string doesn't occur within the first string.
    */
   @Test
-  @Disabled
+//  @Disabled
   public void e_bifunction2() {
-    BiFunction<String, String, Integer> bifunc = null; // TODO
+    BiFunction<String, String, Integer> bifunc = (a,b)->a.indexOf(b); // TODO
 
     assertEquals(3, bifunc.apply("abcdefghi", "def").intValue());
     assertEquals(-1, bifunc.apply("abcdefghi", "xyz").intValue());
@@ -47,9 +47,9 @@ class E_BiFunctionTest {
    * string.
    */
   @Test
-  @Disabled
+//  @Disabled
   public void e_bifunction3() {
-    BiFunction<String, String, Integer> bifunc = null; // TODO
+    BiFunction<String, String, Integer> bifunc = String::indexOf; // TODO
 
     assertEquals(3, bifunc.apply("abcdefghij", "def").intValue());
     assertEquals(-1, bifunc.apply("abcdefghij", "xyz").intValue());
