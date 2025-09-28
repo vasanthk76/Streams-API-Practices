@@ -15,7 +15,7 @@ public class L_ConvertListOfCharactersToString {
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
             'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
     var mySolution = StringProblemsSolution.convertListOfCharactersToString(listOfCharacters);
-    var yourSolution = "";
+    var yourSolution = listOfCharacters.stream().map(Object::toString).reduce("", String::concat);
     Assertions.assertEquals(mySolution, yourSolution);
   }
 }

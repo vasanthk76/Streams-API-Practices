@@ -1,7 +1,11 @@
 package com.github.streams.practice.a_easy.strings.problems;
 
 import com.github.streams.practice.a_easy.strings.StringProblemsSolution;
+
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -34,13 +38,15 @@ import org.junit.jupiter.api.Test;
  */
 class A_MatchesNoOfVowelsTest {
   @Test
-  @Disabled
+//  @Disabled
   void testAM_MaxNoOfVowelsTest() {
     var input = "The quick brown fox jumps right over the little lazy dog.";
     final var length = 2;
 
     var mySolution = StringProblemsSolution.getMatchesVowels(input, length);
-    var yourSolution = List.of();
+    var yourSolution = Arrays.stream(input.split(" "))
+            .filter(word->word.replaceAll("[aeiouAEIOU]","").length() == word.length() - length)
+                    .collect(Collectors.toList());
     Assertions.assertEquals(mySolution, yourSolution);
   }
 }

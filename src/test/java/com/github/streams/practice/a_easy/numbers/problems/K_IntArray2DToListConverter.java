@@ -7,9 +7,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+//Write a Java method that converts a two-dimensional primitive int[][] array into
+//a List<List<Integer>>. Use Java Streams for the conversion.
 public class K_IntArray2DToListConverter {
   @Test
-  @Disabled
+//  @Disabled
   void convertInt2DArrayToList() {
     final int[][] input = DummyData.random2DPrimitiveArray();
 

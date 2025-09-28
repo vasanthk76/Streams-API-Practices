@@ -20,12 +20,12 @@ class H_ReverseStringWithSpecialCharactersTest {
    * @todo Implement this test method
    */
   @Test
-  @Disabled
+//  @Disabled
   void testReverseStringWithSpecialCharactersTest() {
     var input = "Hello world! This is a test. 😅";
     var mySolution = StringProblemsSolution.reverseStringWithSpecialCharacters(input);
 
-    var yourSolution = "";
+    var yourSolution = input.chars().mapToObj(x -> (char) x).reduce("", (a, b) -> b + a, (a, b) -> b+a);
 
     Assertions.assertEquals(mySolution, yourSolution);
   }

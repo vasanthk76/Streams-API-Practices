@@ -4,6 +4,8 @@ import com.github.streams.practice.a_easy.numbers.EasyNumbersProblemSolution;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -58,7 +60,8 @@ class N_GroupingOfNumbersTest {
             new Random().nextInt(100));
 
     final var mySolution = EasyNumbersProblemSolution.groupingOfNumbers(randomIntegers);
-    final var yourSolution = Collections.<Integer, List<Integer>>emptyMap();
+//    final var yourSolution = Collections.<Integer, List<Integer>>emptyMap();
+    final var yourSolution = randomIntegers.stream().collect(Collectors.groupingBy(e->e/10));
 
     Assertions.assertEquals(mySolution, yourSolution);
   }
